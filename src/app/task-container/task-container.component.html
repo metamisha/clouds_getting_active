@@ -1,0 +1,19 @@
+<div class="container rounded shadow">
+  <div *ngFor="let task of tasks">
+  <div class="ga-task-total">
+    <div class="row ga-task rounded">
+      <div class="ga-task-header-container col"><h3 class="ga-task-header">{{ task.name }}</h3>
+        <span *ngFor="let tag of task.tags"> #{{tag}}</span></div>
+      <div class="col ga-button-container" style="display: flex">
+        <div class="ga-image-container"><img src="" alt=""></div>
+        <button class="btn btn-outline-success ga-button">Я це зроблю!</button>
+        <button class="btn btn-outline-secondary ga-button" style="margin-left: 10px">Іншим разом</button>
+      </div>
+
+    </div>
+    <div class="row ga-tip rounded">
+    </div>
+
+  </div>
+  </div>
+</div>

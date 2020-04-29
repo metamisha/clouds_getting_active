@@ -1,0 +1,23 @@
+.ga-navbar{
+  background-color: mediumseagreen;
+
+}
+.ga-brand{
+  font-size: 25px;
+  border-radius: 25px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: mediumseagreen;
+  transition: .5s;
+  font-weight: bold;
+
+}
+.ga-brand:hover{
+  transform: scale(1.1);
+}
+.nav-link{
+  color: white!important;
+  font-family: 'Inconsolata', monospace;
+}

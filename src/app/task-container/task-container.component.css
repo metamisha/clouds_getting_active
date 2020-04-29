@@ -1,0 +1,56 @@
+/*
+mediumseagreen in rgba(60,179,113,1)
+mediumseagreen(dark) in rgba(60,179,113,0.5)
+*/
+.container{
+  border: 3px dotted rgba(60,179,113,1);
+  margin-top: 30px;
+  overflow-y: scroll;
+  height: 700px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 2px;
+}
+.ga-task{
+  border: 3px solid rgba(60,179,113,0.5);
+  margin-bottom: 5px;
+  transition: .3s ease-in-out;
+  height: 172px;
+}
+.ga-tip{
+  border: 3px solid rgba(60,179,113,0.5);
+  transition: .3s ease-in-out;
+  height: 172px;
+}
+.ga-task-total{
+  height: 345px;
+  margin-top: 10px;
+}
+.ga-task:hover{
+  border: 3px solid rgba(60,179,113,1);
+}
+.ga-tip:hover{
+  border: 3px solid rgba(60,179,113,1);
+}
+.ga-task-header-container{
+  padding: 20px;
+}
+.ga-task-header{
+  color: darkslategray;
+  margin-top: 30px;
+}
+.ga-image-container{
+  margin-left: 70px;
+  border: 1px solid mediumseagreen;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.ga-button-container{
+  margin-top: 60px;
+}
+.ga-button{
+  margin-left: 60px;
+  height: 50px;
+  width: 150px;
+}
