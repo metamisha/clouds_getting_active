@@ -5,16 +5,40 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TaskContainerComponent } from './task-container/task-container.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {RouterModule} from "@angular/router";
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
+import {ReactiveFormsModule} from "@angular/forms";
+
+const appRoutes = [
+  {path: 'tasks', component: TaskContainerComponent},
+  {path: 'profile', component: ProfileComponent},
+  { path: '',
+    redirectTo: '/tasks',
+    pathMatch: 'full'
+  },
+  {path: '**', component: PageNotFoundComponent }
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TaskContainerComponent
+    TaskContainerComponent,
+    ProfileComponent,
+    PageNotFoundComponent,
+    SignUpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    //,{enableTracing: true}),
   ],
   providers: [ CommonService ],
   bootstrap: [AppComponent]

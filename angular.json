@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CloudsGAv13"
+    }
+  },
+  "defaultProject": "CloudsGAv13",
+  "cli": {
+    "analytics": false
+  }
 }

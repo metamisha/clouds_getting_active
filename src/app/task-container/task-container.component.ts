@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable} from 'rxjs';
 import {CommonService} from '../common.service';
 
 @Component({
@@ -9,15 +8,22 @@ import {CommonService} from '../common.service';
   styleUrls: ['./task-container.component.css']
 })
 export class TaskContainerComponent implements OnInit {
-tasks;
+  tasks;
+  taskSuccessImg;
   constructor(
-    private http: HttpClient, private dataService: CommonService) { }
+    private http: HttpClient,
+    private dataService: CommonService) { }
 
   ngOnInit(): void {
     this.dataService.getTasks().subscribe(res => this.tasks = res);
+    this.taskSuccessImg = this.dataService.getTaskDoneImage();
   }
 
-  // getTasks(): Observable<Tasks[]> {
-  //   return this.http.get<Tasks[]>(this.url);
-  // }
+  acceptTask(id: any) {
+    document.getElementById(id).setAttribute('src', this.taskSuccessImg);
+  }
+
+  refuseTask(id: any) {
+    document.getElementById(id).parentElement.parentElement.parentElement.parentElement.remove();
+  }
 }
