@@ -70,7 +70,6 @@ router.route('/login')
                 return res.status(422).json(info);
             }
         })(req, res, next);
-      console.log("Bad credentials");
 });
 
 

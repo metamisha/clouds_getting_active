@@ -9,7 +9,7 @@ export class CommonService {
 
   constructor(private http: HttpClient) {}
   getTasks(){
-    return this.http.get<any>('http://localhost:3000/tasks').pipe(map((response: Response) => response));
+    return this.http.get<any>('http://localhost:3000/api/tasks').pipe(map((response: Response) => response));
   }
 
   getTaskDoneImage() {

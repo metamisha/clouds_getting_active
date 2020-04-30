@@ -32,9 +32,9 @@ const tasksRouter = require('./routes/tasksRouter');
 const userRouter = require('./routes/userRouter');
 const uploadRouter = require('./routes/uploadRouter');
 
-app.use('/tasks', tasksRouter);
-app.use('/users', userRouter);
-app.use('/upload', uploadRouter);
+app.use('/api/tasks', tasksRouter);
+app.use('/api/users', userRouter);
+app.use('/api/upload', uploadRouter);
 
 const corsOptions = {
   origin: '*',
