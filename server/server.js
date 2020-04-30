@@ -19,11 +19,11 @@ const isProduction = process.env.NODE_ENV === 'production';
 //Parsers
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(function(req, res, next){
+app.use(cors(), (req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', "http://localhost:3000");
   res.setHeader('Access-Control-Allow-Origin', "http://localhost:4200");
   res.setHeader('Acess-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Origin, Accept');
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
@@ -36,13 +36,6 @@ const uploadRouter = require('./routes/uploadRouter');
 app.use('/api/tasks', tasksRouter);
 app.use('/api/users', userRouter);
 app.use('/api/upload', uploadRouter);
-
-const corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
-
 
 //connect mongodb
 mongoose.connect(url,
