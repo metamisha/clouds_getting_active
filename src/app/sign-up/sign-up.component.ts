@@ -42,6 +42,7 @@ export class SignUpComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
+    console.log('It is being submitted');
     this.submitted = true;
 
     // reset alerts on submit
@@ -51,6 +52,8 @@ export class SignUpComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
+    console.log(this.registerForm.value);
 
     this.loading = true;
     this.userService.register(this.registerForm.value)

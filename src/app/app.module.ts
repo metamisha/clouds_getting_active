@@ -15,8 +15,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 const appRoutes = [
   {path: 'tasks', component: TaskContainerComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignUpComponent},
   { path: '',
-    redirectTo: '/tasks',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {path: '**', component: PageNotFoundComponent }
@@ -38,7 +40,6 @@ const appRoutes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
-    //,{enableTracing: true}),
   ],
   providers: [ CommonService ],
   bootstrap: [AppComponent]

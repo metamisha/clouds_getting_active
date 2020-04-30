@@ -10,7 +10,8 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.http.post(`localhost/3000/users/`, {
+    console.log('user is being registered');
+    return this.http.post(`http://localhost:3000/users/`, {
       username: user.username,
       email: user.email,
       password: user.password

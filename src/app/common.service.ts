@@ -15,8 +15,4 @@ export class CommonService {
   getTaskDoneImage() {
     return './assets/taskDoneImg.png';
   }
-
-  getUser(){
-    return this.http.get<any>('http://localhost:3000/users/user').pipe(map((response: Response) => response));
-  }
 }

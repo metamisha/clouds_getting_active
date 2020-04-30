@@ -1,4 +1,6 @@
-<h2>Login</h2>
+
+<div class="container">
+  <h3>Авторизація</h3>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="email">Email</label>
@@ -8,17 +10,18 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    <label for="password">Пароль</label>
+    <input id="password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
       <div *ngIf="f.password.errors.required">Password is required</div>
     </div>
   </div>
   <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary">
+    <button [disabled]="loading" class="btn btn-outline-success">
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-      Login
+      Увійти
     </button>
-    <a routerLink="/register" class="btn btn-link">Register</a>
+    <a routerLink="/signup" class="btn btn-link">Зареєструватись</a>
   </div>
 </form>
+</div>
