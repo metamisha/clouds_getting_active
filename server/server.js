@@ -51,7 +51,7 @@ mongoose.connect(url,
 });
 
 //Angular output folder
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname + '/../dist')));
 
 // development error handler
 // will print stacktrace
