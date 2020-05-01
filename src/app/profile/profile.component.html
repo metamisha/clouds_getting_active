@@ -1,7 +1,27 @@
-<div class="container rounded shadow">
-  <div *ngIf="user">
-    {{user.user.username}}
-    {{user.user.email}}
-    {{user.user.image}}
+ <div *ngIf="user">
+    <div class="ga-profile-header container rounded shadow-lg">
+        <div class="ga-profile-image-container">
+          <img src="./assets/user-icon.png" class="ga-profile-photo" alt="">
+        </div>
+
+        <div class="ga-profile-info">
+          <h3 class="ga-profile-text-name"> {{user.user.username}}</h3>
+          <h6 class="ga-profile-text-email"> {{user.user.email}}</h6>
+          <h6 class="ga-profile-text-email"> Дата реєстрації: {{ user.user.createdAt }}</h6>
+        </div>
+      </div>
+    <div class="ga-profile-header container rounded shadow-lg ga-container-bottom" >
+      <div class="row">
+        <div class="col fisrt-col">
+          <h4 class="ga-profile-text-name" style="margin-top: 20px">Досягнення:</h4>
+        <div class="ga-profile-achieve rounded"></div>
+        </div>
+        <div class="col second-col"><h4 class="ga-profile-text-name" style="margin-top: 20px; margin-left: 15px">Сертифікат</h4>
+          <div class="ga-profile-achieve rounded" style="margin-left: 15px"></div></div>
+
+      </div>
+
+    </div>
   </div>
-</div>
+
+

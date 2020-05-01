@@ -1,0 +1,114 @@
+.ga-profile-header{
+  height: 400px;
+  background-color: mediumseagreen;
+  margin-top: 30px;
+  display: flex;
+}
+.ga-profile-image-container{
+  background-color: white;
+  height: 200px;
+  width: 200px;
+  margin-left: 20px;
+  margin-top: 100px;
+  border-radius: 150px;
+
+}
+.container{
+  padding: 0!important;
+}
+.ga-profile-photo{
+  max-width: 100%;
+}
+.ga-profile-text-name{
+  margin-top: 150px;
+  margin-left: 50px;
+  color: white;
+}
+.ga-profile-text-email{
+  margin-left: 50px;
+  color: white;
+}
+.ga-profile-achieve{
+  background-color: white;
+  width: 500px;
+  height: 120px;
+  margin-left: 50px;
+}
+.ga-container-bottom{
+  height: 200px;
+}
+@media screen and (max-width: 1200px){
+  .ga-container-bottom{
+    height: 400px;
+  }
+  .ga-profile-achieve{
+    width: 835px;
+  }
+  .second-col{
+    margin-left: 35px;
+  }
+
+}
+@media screen and (max-width: 990px){
+  .ga-container-bottom{
+    height: 400px;
+  }
+  .ga-profile-achieve{
+    width: 640px;
+    margin-left: 40px;
+  }
+  .second-col{
+    margin-left: 25px;
+  }
+
+}
+@media screen and (max-width: 768px){
+  .ga-container-bottom{
+    height: 400px;
+  }
+  .ga-profile-achieve{
+    width: 450px;
+    margin-left: 40px;
+  }
+  .second-col{
+    margin-left: 25px;
+  }
+
+}
+@media screen and (max-width: 590px){
+.ga-profile-header{
+  display: block;
+  text-align: center;
+}
+  .ga-profile-text-name{
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .ga-profile-text-email{
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .ga-profile-image-container{
+
+    margin: auto;
+
+  }
+  div{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 520px){
+  .ga-container-bottom{
+    height: 400px;
+  }
+  .ga-profile-achieve{
+    width: 100%;
+    margin-left: 15px;
+  }
+  .second-col{
+    margin-left: 0;
+    width: 100%;
+  }
+}

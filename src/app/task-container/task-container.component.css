@@ -26,7 +26,7 @@ mediumseagreen(dark) in rgba(60,179,113,0.5)
   height: 345px;
   margin-top: 10px;
 }
-.ga-task:hover{
+.ga-task-total:hover{
   border: 3px solid rgba(60,179,113,1);
 }
 .ga-tip:hover{
@@ -48,9 +48,70 @@ mediumseagreen(dark) in rgba(60,179,113,0.5)
 }
 .ga-button-container{
   margin-top: 60px;
+  display: flex
 }
 .ga-button{
   margin-left: 60px;
   height: 50px;
   width: 150px;
 }
+.ga-tip{
+  margin-top: 0!important;
+  padding: 20px;
+}
+.ga-tip-header{
+  color: darkslategray;
+  margin-top: 15px;
+}
+@media screen and (max-width: 1200px){
+.ga-tip{
+  height: 220px;
+}
+.ga-task{
+  height: 220px;
+}
+}
+@media screen and (max-width: 990px){
+  .ga-task{
+    display: block;
+    height: 250px;
+    text-align: center;
+  }
+  .ga-task .ga-button-container{
+    margin-top: 20px;
+  }
+  .ga-task .ga-button-container .ga-image-container{
+    margin-left: 55px;
+  }
+
+}
+@media screen and (max-width: 768px){
+  .ga-task{
+    height: 300px;
+  }
+  .ga-tip{
+    height: 300px;
+  }
+}
+@media screen and (max-width: 515px) {
+.btn{
+  width: 100px;
+  height: 70px;
+  margin-left: 10px;
+}
+.ga-image-container{
+  margin-left: 1px!important;
+}
+.ga-button-container{
+  padding: 3px;
+}
+.ga-task{
+  height: auto;
+}
+.ga-tip{
+  height: auto;
+}
+}
+
+
+
