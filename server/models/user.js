@@ -23,7 +23,11 @@ const User = new Schema({
   },
   image: String,
   hash: String,
-  salt: String
+  salt: String,
+  doneTasks: {
+    type: [String],
+    default: []
+  }
 }, {timestamps: true});
 
 User.plugin(uniqueValidator, {message: 'is already taken.'});
@@ -55,7 +59,9 @@ User.methods.toAuthJSON = function(){
     username: this.username,
     email: this.email,
     token: this.generateJWT(),
-    image: this.image
+    image: this.image,
+    doneTasks: this.doneTasks,
+    createdAt: this.createdAt
   };
 };
 

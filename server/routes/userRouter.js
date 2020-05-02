@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.route('/')
   .post((req, res, next) => {
-    console.log('New User');
     const user = new Users();
     user.username = req.body.username;
     user.email = req.body.email;
@@ -26,32 +25,13 @@ router.route('/user')
             return res.json({user: user.toAuthJSON()});
         }).catch(next);
     })
-    .put(auth.required, (req, res, next) => {
-        Users.findById(req.payload.id).then((user) => {
-            if(!user) {return res.statusCode(401);}
-
-            if(typeof req.body.user.username !== 'undefined'){
-                user.username = req.body.user.username;
-            }
-            if(typeof req.body.user.email !== 'undefined'){
-                user.email = req.body.user.email;
-            }
-            if(typeof req.body.user.image !== 'undefined'){
-                user.image = req.body.user.image;
-            }
-            if(typeof req.body.user.password !== 'undefined'){
-                user.setPassword(req.body.user.password);
-            }
-
-            return user.save().then(() => {
-                return res.json({user: user.toAuthJSON()});
-            });
-        }).catch(next);
+    .put((req, res, next) => {
+      update(req.body.user).then(() => res.json({}))
+        .catch(err => next(err));
     });
 
 router.route('/login')
     .post((req, res, next) => {
-        console.log('NEW LOGIN');
         if(!req.body.email){
             return res.status(422).json({errors: {email: "can't be blank"}});
         }
@@ -72,5 +52,25 @@ router.route('/login')
         })(req, res, next);
 });
 
+async function update(userParam) {
+  const user = await Users.findOne({username: userParam.username});
+
+  if(typeof userParam.username !== 'undefined'){
+    user.username = userParam.username;
+  }
+  if(typeof userParam.email !== 'undefined'){
+    user.email = userParam.email;
+  }
+  if(typeof userParam.image !== 'undefined'){
+    user.image = userParam.image;
+  }
+  if(typeof userParam.password !== 'undefined'){
+    user.setPassword(userParam.password);
+  }
+  if(typeof userParam.doneTasks !== 'undefined'){
+    user.doneTasks = userParam.doneTasks.slice();
+  }
+  await user.save();
+}
 
 module.exports = router;

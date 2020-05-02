@@ -9,11 +9,12 @@ import {CommonService} from "../common.service";
 export class ProfileComponent implements OnInit {
 
   user;
+  isUserLoggedIn;
   constructor(private dataService: CommonService) { }
 
   ngOnInit(): void {
+    this.isUserLoggedIn = this.dataService.isUserLoggedIn.getValue();
     this.user = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.user);
   }
 
 }

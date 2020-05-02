@@ -6,19 +6,19 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/tasks" *ngIf="user">Головна</a>
+        <a class="nav-link" routerLink="/tasks" *ngIf="isUserLoggedIn">Головна</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile" *ngIf="user">Профіль</a>
+        <a class="nav-link" routerLink="/profile" *ngIf="isUserLoggedIn">Профіль</a>
       </li>
       <li class="nav-item login">
-        <a class="nav-link" routerLink="/login" *ngIf="user == null">Увійти</a>
+        <a class="nav-link" routerLink="/login" *ngIf="!isUserLoggedIn">Увійти</a>
       </li>
       <li class="nav-item register">
-        <a class="nav-link" routerLink="/signup" *ngIf="user == null">Реєстрація</a>
+        <a class="nav-link" routerLink="/signup" *ngIf="!isUserLoggedIn">Реєстрація</a>
       </li>
       <li class="nav-item register">
-        <a class="nav-link" routerLink="/login" *ngIf="user" (click)="logout()">Вийти</a>
+        <a class="nav-link" routerLink="/login" *ngIf="isUserLoggedIn" (click)="logout()">Вийти</a>
       </li>
     </ul>
   </div>

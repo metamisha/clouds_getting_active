@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 const Tasks = require('../models/tasks');
 const mongoose = require('mongoose');
+const auth = require('../authenticate');
 
 router.use(bodyParser.json());
 

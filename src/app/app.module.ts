@@ -10,7 +10,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {RouterModule} from "@angular/router";
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms";
+import {TaskComponent} from "./task/task.component";
 
 const appRoutes = [
   {path: 'tasks', component: TaskContainerComponent},
@@ -26,15 +27,16 @@ const appRoutes = [
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    TaskContainerComponent,
-    ProfileComponent,
-    PageNotFoundComponent,
-    SignUpComponent,
-    LoginComponent
-  ],
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        TaskContainerComponent,
+        ProfileComponent,
+        PageNotFoundComponent,
+        SignUpComponent,
+        LoginComponent,
+        TaskComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

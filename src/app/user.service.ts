@@ -11,10 +11,17 @@ export class UserService {
 
   register(user: User) {
     console.log('user is being registered');
-    return this.http.post(`http://localhost:3000/api/users/`, {
+    return this.http.post(`http://localhost:3000/users/`, {
       username: user.username,
       email: user.email,
       password: user.password
+    });
+  }
+
+  updateDoneTasks(user: User){
+    console.log('updating task');
+    return this.http.put(`http://localhost:3000/users/user/`, {
+      doneTasks: user.doneTasks
     });
   }
 

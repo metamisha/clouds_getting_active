@@ -33,9 +33,9 @@ const tasksRouter = require('./routes/tasksRouter');
 const userRouter = require('./routes/userRouter');
 const uploadRouter = require('./routes/uploadRouter');
 
-app.use('/api/tasks', tasksRouter);
-app.use('/api/users', userRouter);
-app.use('/api/upload', uploadRouter);
+app.use('/tasks', tasksRouter);
+app.use('/users', userRouter);
+app.use('/upload', uploadRouter);
 
 //connect mongodb
 mongoose.connect(url,
@@ -72,7 +72,7 @@ app.use((err, req, res, next) => {
     }});
 });
 
-const port = process.env.PORT || '3000';
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3000;
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port, () => {
