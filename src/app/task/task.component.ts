@@ -24,13 +24,17 @@ export class TaskComponent implements OnInit {
   }
 
   acceptTask(id: any) {
-    document.getElementById(id).setAttribute('src', '../assets/taskDoneImg.png');
+    document.getElementById(id).setAttribute('style', 'background-color: #9c9898;');
+    document.getElementById(id+"-skip").remove();
+    document.getElementById(id+"-done").remove();
     this.user.doneTasks.push(id);
-    this.userService.updateDoneTasks(this.user);
+    this.userService.updateDoneTasks(this.user).subscribe(res => {});
+    let node = document.getElementById(id);
+    node.parentNode.parentNode.parentNode.appendChild(node);
   }
 
   refuseTask(id: any) {
-    document.getElementById(id).parentElement.parentElement.parentElement.parentElement.remove();
+    document.getElementById(id).remove();
   }
 
 }

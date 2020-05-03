@@ -26,8 +26,8 @@ router.route('/user')
         }).catch(next);
     })
     .put((req, res, next) => {
-      update(req.body.user).then(() => res.json({}))
-        .catch(err => next(err));
+        update(req.body.user).then(() => res.json({}))
+            .catch(err => next(err));
     });
 
 router.route('/login')
