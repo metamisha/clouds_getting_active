@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
-const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const config = require('./config');
@@ -13,6 +12,7 @@ const passport = require('passport');
 const passportConfig = require('./passport');
 app.use(passport.initialize());
 app.use(passport.session());
+const db = require('./database');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -27,7 +27,6 @@ app.use(cors(), (req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
-const url = config.mongoUrl;
 //ROUTERS
 const tasksRouter = require('./routes/tasksRouter');
 const userRouter = require('./routes/userRouter');
@@ -36,13 +35,6 @@ const uploadRouter = require('./routes/uploadRouter');
 app.use('/tasks', tasksRouter);
 app.use('/users', userRouter);
 app.use('/upload', uploadRouter);
-
-//connect mongodb
-mongoose.connect(url,
-   {useNewUrlParser: true}, function (err) {
-    if (err) throw err;
-    console.log('Successfully connected');
-});
 
 //Angular output folder
 app.use(express.static(path.join(__dirname + '/../dist')));

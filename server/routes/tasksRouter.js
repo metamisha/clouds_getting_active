@@ -1,20 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const Tasks = require('../models/tasks');
-const mongoose = require('mongoose');
-const auth = require('../authenticate');
+const { auth } = require('../firebaseService');
+const { checkIfAdmin } = require('../authenticate');
+const tasks = require('../models/tasks');
 
 router.use(bodyParser.json());
 
 router.route('/')
-    .get((req, res, next) => {
-        Tasks.find(req.query).then((tasks) => {
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
-            res.json(tasks);
-        }, (err) => next(err))
-            .catch((err) => next(err));
+    .get(checkIfAdmin, (req, res, next) => {
     })
     .post((req, res, next) => {
         Tasks.create(req.body)
